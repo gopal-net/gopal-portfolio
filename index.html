@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gopalakrishnan D | Portfolio</title>
+  <style>
+    :root{
+      --bg1:#fff1f7;
+      --bg2:#eefcff;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#5b6474;
+      --pink:#d946ef;
+      --orange:#f97316;
+      --sky:#0ea5e9;
+      --green:#10b981;
+      --ring:#e5e7eb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg,var(--bg1),#fff 45%,var(--bg2));
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1150px;margin:0 auto;padding:0 20px}
+    .hero{
+      background:
+        radial-gradient(circle at top left, rgba(244,114,182,.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(59,130,246,.18), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(16,185,129,.16), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(251,191,36,.18), transparent 28%);
+      padding:70px 0 50px;
+    }
+    .hero-grid, .two-col, .skills-grid, .edu-grid, .project-grid{
+      display:grid;gap:24px;
+    }
+    .hero-grid{grid-template-columns:1.15fr .85fr;align-items:center}
+    .two-col{grid-template-columns:1.2fr .8fr}
+    .skills-grid{grid-template-columns:1fr 1fr}
+    .edu-grid{grid-template-columns:.95fr 1.05fr}
+    .badge{
+      display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.85);
+      color:#b91c1c;font-weight:700;font-size:14px;box-shadow:0 2px 10px rgba(0,0,0,.05);
+    }
+    h1{font-size:58px;line-height:1.05;margin:18px 0 10px}
+    .name{
+      background:linear-gradient(90deg,var(--pink),var(--orange),var(--sky));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .subtitle{font-size:28px;font-weight:700;margin:0 0 10px}
+    .lead{font-size:18px;color:var(--muted);max-width:760px}
+    .btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+    .btn{
+      display:inline-block;padding:14px 22px;border-radius:18px;font-weight:700;
+      box-shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+    .btn-primary{background:linear-gradient(90deg,var(--pink),var(--orange));color:#fff}
+    .btn-secondary{background:#fff;border:1px solid var(--ring)}
+    .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .chip{
+      background:rgba(255,255,255,.92);padding:10px 14px;border-radius:999px;
+      border:1px solid var(--ring);font-size:14px;font-weight:700;color:#475569;
+    }
+    .card{
+      background:var(--card);border:1px solid var(--ring);border-radius:30px;padding:28px;
+      box-shadow:0 10px 25px rgba(15,23,42,.05);
+    }
+    .card-grad-pink{background:linear-gradient(135deg,#d946ef,#ec4899,#fb923c);color:#fff;border:none}
+    .card-grad-blue{background:linear-gradient(135deg,#0ea5e9,#22d3ee);color:#fff;border:none}
+    .card-grad-orange{background:linear-gradient(135deg,#f97316,#fbbf24);color:#fff;border:none}
+    .card-grad-green{background:linear-gradient(135deg,#ecfdf5,#ccfbf1);border-color:#a7f3d0}
+    .card-grad-warm{background:linear-gradient(135deg,#fffbeb,#ffe4e6);border-color:#fecdd3}
+    .card-grad-cool{background:linear-gradient(135deg,#eff6ff,#cffafe);border-color:#bae6fd}
+    .section{padding:18px 0 10px}
+    h2{font-size:38px;margin:0 0 12px}
+    h3{margin:0}
+    .profile{
+      display:flex;gap:18px;align-items:center
+    }
+    .profile img{
+      width:110px;height:110px;border-radius:28px;object-fit:cover;border:4px solid #fae8ff
+    }
+    .muted{color:var(--muted)}
+    .skill-block{margin-top:16px}
+    .skill-row{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700;margin-bottom:6px}
+    .bar{height:12px;background:rgba(255,255,255,.75);border:1px solid var(--ring);border-radius:999px;overflow:hidden}
+    .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--orange),var(--sky))}
+    .project{
+      overflow:hidden;padding:0
+    }
+    .project-grid{grid-template-columns:.95fr 1.05fr}
+    .project img{width:100%;height:100%;object-fit:cover;min-height:300px;display:block}
+    .project-content{padding:28px}
+    .tag{
+      display:inline-block;background:linear-gradient(90deg,#faf5ff,#fdf2f8);border:1px solid #f5d0fe;
+      color:#6d28d9;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:700
+    }
+    .stack{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .stack span{
+      padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,#faf5ff,#fff7ed);
+      border:1px solid #f5d0fe;font-size:13px;font-weight:700;color:#475569
+    }
+    ul{padding-left:20px;margin:14px 0 0}
+    footer{padding:26px 0 50px;color:#64748b;font-size:14px;text-align:center}
+    @media (max-width: 900px){
+      h1{font-size:42px}
+      .subtitle{font-size:22px}
+      .hero-grid,.two-col,.skills-grid,.edu-grid,.project-grid{grid-template-columns:1fr}
+      .hero{padding-top:52px}
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Zoho-style Portfolio</span>
+        <h1>Hi, I’m <span class="name">Gopalakrishnan D</span></h1>
+        <p class="subtitle">L1 Support Engineer • Python Developer</p>
+        <p class="lead">
+          Enthusiastic IT professional with a strong foundation in hardware, networking,
+          troubleshooting, and full stack development. I enjoy solving real-world technical
+          problems, supporting users, and building practical systems that keep operations running smoothly.
+        </p>
+        <div class="btns">
+          <a class="btn btn-primary" href="mailto:mrgovaalu@gmail.com">Contact Me</a>
+          <a class="btn btn-secondary" href="./GOPALAKRISHNAN_D_Resume.pdf" download>Download Resume</a>
+        </div>
+        <div class="chips">
+          <span class="chip">L1 Support Engineer Profile</span>
+          <span class="chip">Python Full Stack Exposure</span>
+          <span class="chip">Hardware & Networking Skills</span>
+          <span class="chip">Troubleshooting-Focused Mindset</span>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="profile">
+            <img src="profile-placeholder.jpg" alt="Profile Photo" />
+            <div>
+              <div style="font-size:14px;font-weight:700;color:#c026d3">Profile Card</div>
+              <h3 style="font-size:28px;margin-top:4px">Gopalakrishnan D</h3>
+              <p class="muted" style="margin:8px 0 0">IT support, networking, troubleshooting, and Python-based development.</p>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+          <div class="card card-grad-blue">
+            <div style="font-size:14px;font-weight:700;opacity:.9">Focus</div>
+            <h3 style="font-size:28px;margin-top:6px">Networking</h3>
+            <p style="margin-top:8px;font-size:14px;opacity:.95">TCP/IP, DNS, DHCP, NAT, router and switch basics.</p>
+          </div>
+          <div class="card card-grad-orange">
+            <div style="font-size:14px;font-weight:700;opacity:.9">Build</div>
+            <h3 style="font-size:28px;margin-top:6px">Python Stack</h3>
+            <p style="margin-top:8px;font-size:14px;opacity:.95">Practical exposure to Django, SQL, MySQL, and frontend basics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div class="card">
+        <h2>About Me</h2>
+        <p class="muted">
+          I am an enthusiastic IT professional with knowledge in IT hardware, networking, remote support,
+          and full stack development. I have hands-on exposure to OS installation, troubleshooting, network basics,
+          and Python-based web application development. I am committed to learning continuously, solving technical
+          issues efficiently, and contributing to stable IT operations.
+        </p>
+      </div>
+      <div class="card card-grad-pink">
+        <h2 style="margin:0 0 8px">Contact</h2>
+        <p><strong>Phone:</strong> +91 8489608052</p>
+        <p><strong>Email:</strong> mrgovaalu@gmail.com</p>
+        <p><strong>Location:</strong> Karur, Tamil Nadu</p>
+        <p><strong>LinkedIn:</strong> <a href="https://tinyurl.com/Gopal-Linkedin" target="_blank">View Profile</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Skills & Proficiency</h2>
+      <div class="skills-grid">
+        <div class="card card-grad-cool">
+          <h3 style="font-size:30px">IT Support & Networking</h3>
+          <div class="skill-block">
+            <div class="skill-row"><span>IT Hardware Troubleshooting</span><span>90%</span></div>
+            <div class="bar"><div class="fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-row"><span>OS Installation & Remote Support</span><span>88%</span></div>
+            <div class="bar"><div class="fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-row"><span>TCP/IP, DNS, DHCP, NAT</span><span>82%</span></div>
+            <div class="bar"><div class="fill" style="width:82%"></div></div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-row"><span>Router, Switch, Modem Basics</span><span>80%</span></div>
+            <div class="bar"><div class="fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-row"><span>BIOS/UEFI & Boot Troubleshooting</span><span>84%</span></div>
+            <div class="bar"><div class="fill" style="width:84%"></div></div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-row"><span>Static & DHCP IP Configuration</span><span>85%</span></div>
+            <div class="bar"><div class="fill" style="width:85%"></div></div>
+          </div>
+        </div>
+
+        <div class="card" style="background:linear-gradient(135deg,#fff1f2,#fff7ed);border-color:#fed7aa">
+          <h3 style="font-size:30px">Development</h3>
+          <div class="skill-block">
+            <div class="skill-row"><span>Python 3.12</span><span>78%</span></div>
+            <div class="bar"><div class="fill" style="width:78%"></div></div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-row"><span>Django</span><span>72%</span></div>
+            <div class="bar"><div class="fill" style="width:72%"></div></div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-row"><span>SQL & MySQL</span><span>76%</span></div>
+            <div class="bar"><div class="fill" style="width:76%"></div></div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-row"><span>HTML, CSS, JavaScript</span><span>74%</span></div>
+            <div class="bar"><div class="fill" style="width:74%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Projects</h2>
+
+      <div class="card project" style="margin-top:18px">
+        <div class="project-grid">
+          <div>
+            <img src="project-1.jpg" alt="Trainer Management System screenshot" />
+          </div>
+          <div class="project-content">
+            <span class="tag">Featured Project</span>
+            <h3 style="font-size:34px;margin-top:14px">Trainer Management System</h3>
+            <p class="muted">A practical web application used to manage trainer information, create batches, and assign trainers with selected batch start dates.</p>
+            <ul class="muted">
+              <li>Designed around admin and trainer workflows</li>
+              <li>Supports trainer registration and management</li>
+              <li>Includes batch creation and assignment processes</li>
+              <li>Built for real-world training operations</li>
+            </ul>
+            <div class="stack">
+              <span>Python</span><span>Django</span><span>MySQL</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card project" style="margin-top:18px">
+        <div class="project-grid">
+          <div>
+            <img src="project-2.jpg" alt="IT support workflow screenshot" />
+          </div>
+          <div class="project-content">
+            <span class="tag">Project Showcase</span>
+            <h3 style="font-size:34px;margin-top:14px">IT Support & Troubleshooting Workflow</h3>
+            <p class="muted">A showcase section representing hands-on experience in remote support, issue diagnosis, system checks, and smooth IT operations.</p>
+            <ul class="muted">
+              <li>Focused on system health and issue resolution</li>
+              <li>Includes troubleshooting mindset and support flow</li>
+              <li>Represents practical support-oriented work style</li>
+            </ul>
+            <div class="stack">
+              <span>IT Support</span><span>Networking</span><span>Diagnostics</span><span>Remote Access</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div class="card card-grad-green">
+        <h2 style="font-size:30px">Training & Certifications</h2>
+        <ul class="muted">
+          <li>IT Hardware and Networking – Entrust Technology</li>
+          <li>Python Full Stack Development – Palle Technologies</li>
+        </ul>
+      </div>
+      <div class="card card-grad-warm">
+        <h2 style="font-size:30px">Internship</h2>
+        <h3 style="font-size:22px;margin-top:8px">Python Developer Intern – Palle Technologies</h3>
+        <ul class="muted">
+          <li>Implemented data processing scripts using Python</li>
+          <li>Integrated Python-based solutions with existing systems</li>
+          <li>Learned development best practices and practical industry workflows</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container edu-grid">
+      <div class="card">
+        <h2 style="font-size:30px">Education</h2>
+        <ul class="muted">
+          <li>B.Voc Information Technology – Bishop Heber College, Tiruchirappalli – 72% (2022)</li>
+          <li>Higher Secondary Education (Computer Science) – Govt Higher Secondary School Sengulam – 60% (2019)</li>
+          <li>SSLC – Govt Higher Secondary School Sengulam – 80% (2017)</li>
+        </ul>
+      </div>
+      <div class="card" style="background:linear-gradient(90deg,#0ea5e9,#22d3ee,#34d399);color:#fff;border:none">
+        <h2>Let’s Build Something Great</h2>
+        <p>I am actively looking for opportunities in IT support, hardware and networking, and entry-level software development roles where I can contribute, learn, and grow.</p>
+        <div class="btns">
+          <a class="btn btn-secondary" href="mailto:mrgovaalu@gmail.com">Hire Me</a>
+          <a class="btn" style="border:1px solid rgba(255,255,255,.4);color:#fff;background:transparent;box-shadow:none" href="https://tinyurl.com/Gopal-Linkedin" target="_blank">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Portfolio prepared for Gopalakrishnan D
+  </footer>
+</body>
+</html>
