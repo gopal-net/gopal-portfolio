@@ -18,10 +18,8 @@
       --pink: #d946ef;
       --orange: #f97316;
       --sky: #0ea5e9;
-      --green: #10b981;
       --nav: rgba(255,255,255,0.70);
       --chip: rgba(255,255,255,0.75);
-      --bar-bg: rgba(255,255,255,0.75);
       --footer: #556070;
     }
 
@@ -34,7 +32,6 @@
       --shadow: 0 20px 50px rgba(0,0,0,0.35);
       --nav: rgba(15,23,42,0.72);
       --chip: rgba(30,41,59,0.85);
-      --bar-bg: rgba(255,255,255,0.10);
       --footer: #c7d1e1;
     }
 
@@ -285,7 +282,7 @@
       box-shadow: var(--shadow);
     }
 
-    .mini h3{margin:8px 0 6px;font-size:26px}
+    .mini h3{margin:8px 0 6px;font-size:24px}
     .mini p{margin:0;font-size:14px;line-height:1.7}
     .mini.blue{background:linear-gradient(135deg,#0ea5e9,#22d3ee)}
     .mini.orange{background:linear-gradient(135deg,#f97316,#fbbf24)}
@@ -308,39 +305,6 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:24px;
-    }
-
-    .skill-block{margin-top:18px}
-    .skill-head{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:8px;
-      font-size:14px;
-      font-weight:800;
-      color: var(--text);
-    }
-
-    .bar{
-      height:12px;
-      border-radius:999px;
-      background: var(--bar-bg);
-      border:1px solid var(--border);
-      overflow:hidden;
-    }
-
-    .fill{
-      height:100%;
-      border-radius:999px;
-      width:0;
-      background: linear-gradient(90deg, var(--pink), var(--orange), var(--sky));
-      transition: width 1.5s ease;
-    }
-
-    .project-list{
-      display:grid;
-      gap:22px;
-      margin-top:14px;
     }
 
     .tag{
@@ -501,7 +465,7 @@
         </div>
         <p class="subtitle">IT Support Engineer | Networking | Python Developer</p>
         <p class="lead">
-          I solve real-world IT problems and build practical solutions. Enthusiastic IT professional with a strong foundation in hardware, networking, troubleshooting, and web development.
+          I solve real-world IT problems and build practical solutions. Enthusiastic IT professional with knowledge in IT support, networking, troubleshooting, and Python development.
         </p>
 
         <div class="btns">
@@ -514,9 +478,9 @@
         </div>
 
         <div class="chips">
-          <span class="chip">L1 Support Engineer Profile</span>
-          <span class="chip">Python Full Stack Exposure</span>
-          <span class="chip">Hardware & Networking Skills</span>
+          <span class="chip">IT Support</span>
+          <span class="chip">Networking</span>
+          <span class="chip">Python Development</span>
           <span class="chip">Troubleshooting Mindset</span>
         </div>
       </div>
@@ -529,7 +493,7 @@
               <div style="font-size:14px;font-weight:800;color:var(--pink)">Profile</div>
               <h3 style="font-size:28px;margin-top:4px">Gopalakrishnan D</h3>
               <p class="muted" style="margin:8px 0 0">
-                IT support, networking, troubleshooting, and Python-based development.
+                IT support engineer with knowledge in networking, troubleshooting, and Python development.
               </p>
             </div>
           </div>
@@ -537,14 +501,14 @@
 
         <div class="mini-grid">
           <div class="mini blue">
-            <div style="font-size:14px;font-weight:700;opacity:.92">Focus</div>
-            <h3>Networking</h3>
-            <p>TCP/IP, DNS, DHCP, NAT, router and switch basics.</p>
+            <div style="font-size:14px;font-weight:700;opacity:.92">Core Skills</div>
+            <h3>Networking & IT Support</h3>
+            <p>TCP/IP, DNS, DHCP, router and switch basics, OS support, and troubleshooting.</p>
           </div>
           <div class="mini orange">
-            <div style="font-size:14px;font-weight:700;opacity:.92">Build</div>
-            <h3>Python Stack</h3>
-            <p>Practical exposure to Django, SQL, MySQL, and frontend basics.</p>
+            <div style="font-size:14px;font-weight:700;opacity:.92">Development</div>
+            <h3>Python Development</h3>
+            <p>Hands-on exposure to Python, Django, SQL, MySQL, and basic web development.</p>
           </div>
         </div>
       </div>
@@ -556,14 +520,14 @@
       <div class="glass card reveal">
         <h2>About Me</h2>
         <p class="muted">
-          I am an enthusiastic IT professional with knowledge in IT hardware, networking, remote support, and full stack development. I have hands-on exposure to OS installation, troubleshooting, network basics, and Python-based web application development. I am committed to learning continuously, solving technical issues efficiently, and contributing to stable IT operations.
+          I am an enthusiastic IT professional with knowledge in IT hardware, networking, remote support, and Python-based development. I have hands-on exposure to OS installation, troubleshooting, network basics, and basic web technologies. I am committed to learning continuously, solving technical issues efficiently, and contributing to stable IT operations.
         </p>
       </div>
 
       <div class="glass card reveal">
         <h2>Quick Summary</h2>
         <div class="contact-list">
-          <p><i class="fa-solid fa-briefcase"></i> Entry-level IT Support & Development Roles</p>
+          <p><i class="fa-solid fa-briefcase"></i> Entry-level IT Support & Network Roles</p>
           <p><i class="fa-solid fa-microchip"></i> Hardware & Networking Foundation</p>
           <p><i class="fa-solid fa-code"></i> Python, Django, SQL, MySQL</p>
           <p><i class="fa-solid fa-circle-check"></i> Ready to Learn and Contribute</p>
@@ -574,62 +538,41 @@
 
   <section id="skills">
     <div class="container">
+      <div class="reveal" style="margin-bottom:20px;">
+        <h2>Skills & Tools</h2>
+        <p class="muted">Technical skills related to IT support, networking, Python, and web development.</p>
+      </div>
+
       <div class="section-grid">
         <div class="glass card reveal">
-          <h2>IT Support & Networking</h2>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>IT Hardware Troubleshooting</span><span>90%</span></div>
-            <div class="bar"><div class="fill" data-width="90%"></div></div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>OS Installation & Remote Support</span><span>88%</span></div>
-            <div class="bar"><div class="fill" data-width="88%"></div></div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>TCP/IP, DNS, DHCP, NAT</span><span>82%</span></div>
-            <div class="bar"><div class="fill" data-width="82%"></div></div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>Router, Switch, Modem Basics</span><span>80%</span></div>
-            <div class="bar"><div class="fill" data-width="80%"></div></div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>BIOS/UEFI & Boot Troubleshooting</span><span>84%</span></div>
-            <div class="bar"><div class="fill" data-width="84%"></div></div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>Static & DHCP IP Configuration</span><span>85%</span></div>
-            <div class="bar"><div class="fill" data-width="85%"></div></div>
+          <h2>Networking & Support</h2>
+          <div class="stack">
+            <span>IT Support</span>
+            <span>Hardware Troubleshooting</span>
+            <span>OS Installation</span>
+            <span>Desktop & Laptop Support</span>
+            <span>Network Troubleshooting</span>
+            <span>TCP/IP</span>
+            <span>DNS</span>
+            <span>DHCP</span>
+            <span>Router Basics</span>
+            <span>Switch Basics</span>
+            <span>IP Configuration</span>
+            <span>Remote Support</span>
           </div>
         </div>
 
         <div class="glass card reveal">
-          <h2>Development</h2>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>Python</span><span>78%</span></div>
-            <div class="bar"><div class="fill" data-width="78%"></div></div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>Django</span><span>72%</span></div>
-            <div class="bar"><div class="fill" data-width="72%"></div></div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>SQL & MySQL</span><span>76%</span></div>
-            <div class="bar"><div class="fill" data-width="76%"></div></div>
-          </div>
-
-          <div class="skill-block">
-            <div class="skill-head"><span>HTML, CSS, JavaScript</span><span>74%</span></div>
-            <div class="bar"><div class="fill" data-width="74%"></div></div>
+          <h2>Python & Web Development</h2>
+          <div class="stack">
+            <span>Python</span>
+            <span>Django</span>
+            <span>SQL</span>
+            <span>MySQL</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Basic Automation Scripts</span>
           </div>
         </div>
       </div>
@@ -663,20 +606,22 @@
 
         <div class="glass card reveal">
           <span class="tag">Project Showcase</span>
-          <h2 style="font-size:34px">IT Support & Troubleshooting Workflow</h2>
+          <h2 style="font-size:34px">Network Analyzer Toolkit</h2>
           <p class="muted">
-            Hands-on support experience in remote assistance, issue diagnosis, system checks, and smooth IT operations.
+            A Python-based networking project that performs IP reachability checks, port scanning, and subnet calculation for basic network diagnostics.
           </p>
           <ul class="clean">
-            <li>Focused on system health and issue resolution</li>
-            <li>Includes troubleshooting mindset and support flow</li>
-            <li>Represents practical support-oriented work style</li>
+            <li>Checks whether a target IP is reachable</li>
+            <li>Scans common service ports for basic analysis</li>
+            <li>Calculates subnet details such as network and broadcast address</li>
+            <li>Built to demonstrate Python usage in networking tasks</li>
           </ul>
           <div class="stack">
-            <span>IT Support</span>
+            <span>Python</span>
+            <span>Socket</span>
+            <span>Subprocess</span>
+            <span>IPAddress</span>
             <span>Networking</span>
-            <span>Diagnostics</span>
-            <span>Remote Access</span>
           </div>
         </div>
       </div>
@@ -731,7 +676,7 @@
       <div class="glass card reveal">
         <h2>Open to Opportunities</h2>
         <p class="muted">
-          I am actively looking for opportunities in IT support, hardware and networking, and entry-level software development roles where I can contribute, learn, and grow.
+          I am actively looking for opportunities in IT support, hardware and networking, and entry-level Python or web development roles where I can contribute, learn, and grow.
         </p>
         <div class="stack">
           <span>IT Support</span>
@@ -771,12 +716,6 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
-
-          const fills = entry.target.querySelectorAll(".fill");
-          fills.forEach(fill => {
-            const width = fill.getAttribute("data-width");
-            if (width) fill.style.width = width;
-          });
         }
       });
     }, { threshold: 0.14 });
