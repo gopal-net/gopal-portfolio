@@ -1,150 +1,890 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gopalakrishnan D | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gopalakrishnan D | Portfolio</title>
+  <meta name="description" content="Gopalakrishnan D portfolio - IT Support Engineer, Networking, Python Developer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root{
+      --bg: linear-gradient(135deg, #fff1f7, #eefcff);
+      --text: #172033;
+      --muted: #5c6475;
+      --card: rgba(255,255,255,0.55);
+      --border: rgba(255,255,255,0.45);
+      --shadow: 0 20px 50px rgba(31, 41, 55, 0.10);
+      --pink: #d946ef;
+      --orange: #f97316;
+      --sky: #0ea5e9;
+      --green: #10b981;
+      --nav: rgba(255,255,255,0.70);
+      --chip: rgba(255,255,255,0.75);
+      --bar-bg: rgba(255,255,255,0.75);
+      --footer: #556070;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:linear-gradient(135deg,#fdf2f8,#e0f2fe);
-}
+    body.dark{
+      --bg: linear-gradient(135deg, #0f172a, #111827 45%, #08111f);
+      --text: #f5f7fb;
+      --muted: #c7d1e1;
+      --card: rgba(17,24,39,0.48);
+      --border: rgba(255,255,255,0.10);
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --nav: rgba(15,23,42,0.72);
+      --chip: rgba(30,41,59,0.85);
+      --bar-bg: rgba(255,255,255,0.10);
+      --footer: #c7d1e1;
+    }
 
-nav{
-  position:sticky;
-  top:0;
-  background:white;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background .35s ease, color .35s ease;
+      overflow-x:hidden;
+    }
 
-nav a{
-  margin:0 10px;
-  text-decoration:none;
-  font-weight:bold;
-}
+    #bg-canvas{
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
 
-section{
-  padding:50px;
-}
+    .bg-glow{
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(217,70,239,0.18), transparent 24%),
+        radial-gradient(circle at 90% 10%, rgba(14,165,233,0.16), transparent 24%),
+        radial-gradient(circle at 15% 90%, rgba(16,185,129,0.14), transparent 20%),
+        radial-gradient(circle at 85% 85%, rgba(249,115,22,0.14), transparent 22%);
+      filter: blur(4px);
+    }
 
-.hero{
-  text-align:center;
-}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
 
-h1{
-  font-size:50px;
-  background:linear-gradient(to right,#ff00cc,#3333ff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
+    nav{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: var(--nav);
+      border-bottom: 1px solid var(--border);
+    }
 
-.card{
-  background:white;
-  padding:20px;
-  border-radius:20px;
-  margin:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
+    .nav-wrap{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+      gap:16px;
+    }
 
-.card:hover{
-  transform:translateY(-5px);
-}
+    .brand{
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      background: linear-gradient(90deg, var(--pink), var(--orange), var(--sky));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
 
-.skills div{
-  margin:10px 0;
-}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
 
-.bar{
-  background:#eee;
-  border-radius:10px;
-}
+    .nav-links a{
+      font-size:14px;
+      font-weight:700;
+      color: var(--text);
+      opacity:.9;
+      transition:.25s ease;
+    }
 
-.fill{
-  height:10px;
-  background:linear-gradient(to right,pink,orange);
-  border-radius:10px;
-}
+    .nav-links a:hover{opacity:1; transform:translateY(-1px)}
 
-footer{
-  text-align:center;
-  padding:20px;
-}
-</style>
+    .icon-btn{
+      border:none;
+      background: linear-gradient(90deg, var(--pink), var(--orange));
+      color:#fff;
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow: var(--shadow);
+      transition:.25s ease;
+    }
+
+    .icon-btn:hover{transform:translateY(-2px) scale(1.03)}
+
+    section{padding:34px 0}
+
+    .hero{
+      min-height: 88vh;
+      display:flex;
+      align-items:center;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero h1{
+      margin:0 0 8px;
+      font-size: clamp(40px, 7vw, 72px);
+      line-height:1.04;
+      letter-spacing:-1px;
+    }
+
+    .gradient-text{
+      background: linear-gradient(90deg, var(--pink), var(--orange), var(--sky));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+
+    .subtitle{
+      font-size: clamp(18px, 2vw, 28px);
+      margin:12px 0 8px;
+      font-weight: 800;
+    }
+
+    .type-row{
+      min-height: 78px;
+    }
+
+    .lead{
+      max-width:760px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+      margin-top:16px;
+    }
+
+    .btns{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:26px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:16px;
+      font-weight:800;
+      transition:.25s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover{transform:translateY(-3px)}
+
+    .btn-primary{
+      color:#fff;
+      background: linear-gradient(90deg, var(--pink), var(--orange));
+    }
+
+    .btn-secondary{
+      background: var(--chip);
+      border:1px solid var(--border);
+      color: var(--text);
+    }
+
+    .chips{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    .chip{
+      background: var(--chip);
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:14px;
+      font-weight:700;
+      color: var(--text);
+      box-shadow: var(--shadow);
+    }
+
+    .glass{
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .card{
+      padding:26px;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(31,41,55,.16);
+    }
+
+    body.dark .card:hover{
+      box-shadow: 0 24px 60px rgba(0,0,0,.45);
+    }
+
+    .profile-card{
+      padding:26px;
+    }
+
+    .profile-top{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+
+    .profile-img{
+      width:110px;
+      height:110px;
+      border-radius:24px;
+      object-fit:cover;
+      border:3px solid rgba(255,255,255,.45);
+      background:#dbeafe;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+    }
+
+    .mini{
+      color:#fff;
+      border:none;
+      padding:22px;
+      border-radius:24px;
+      box-shadow: var(--shadow);
+    }
+
+    .mini h3{margin:8px 0 6px;font-size:26px}
+    .mini p{margin:0;font-size:14px;line-height:1.7}
+    .mini.blue{background:linear-gradient(135deg,#0ea5e9,#22d3ee)}
+    .mini.orange{background:linear-gradient(135deg,#f97316,#fbbf24)}
+
+    h2{
+      font-size: clamp(28px, 4vw, 42px);
+      margin:0 0 10px;
+      letter-spacing:-.5px;
+    }
+
+    .muted{color:var(--muted);line-height:1.85}
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+    }
+
+    .section-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .skill-block{margin-top:18px}
+    .skill-head{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:8px;
+      font-size:14px;
+      font-weight:800;
+      color: var(--text);
+    }
+
+    .bar{
+      height:12px;
+      border-radius:999px;
+      background: var(--bar-bg);
+      border:1px solid var(--border);
+      overflow:hidden;
+    }
+
+    .fill{
+      height:100%;
+      border-radius:999px;
+      width:0;
+      background: linear-gradient(90deg, var(--pink), var(--orange), var(--sky));
+      transition: width 1.5s ease;
+    }
+
+    .project-list{
+      display:grid;
+      gap:22px;
+      margin-top:14px;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(217,70,239,.10);
+      color: #7e22ce;
+      font-size:13px;
+      font-weight:800;
+      border:1px solid rgba(217,70,239,.18);
+      margin-bottom:10px;
+    }
+
+    body.dark .tag{
+      background: rgba(217,70,239,.16);
+      color: #f0abfc;
+      border-color: rgba(217,70,239,.22);
+    }
+
+    .stack{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .stack span{
+      padding:8px 12px;
+      border-radius:999px;
+      background: var(--chip);
+      border:1px solid var(--border);
+      font-size:13px;
+      font-weight:700;
+      box-shadow: var(--shadow);
+    }
+
+    ul.clean{
+      margin:14px 0 0;
+      padding-left:18px;
+      color: var(--muted);
+      line-height:1.9;
+    }
+
+    .contact-list p{
+      margin:10px 0;
+      color: var(--text);
+      font-weight:700;
+    }
+
+    .contact-list i{
+      width:22px;
+      color: var(--pink);
+      margin-right:8px;
+    }
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+      margin-top:16px;
+    }
+
+    .why-item{
+      padding:18px;
+      border-radius:18px;
+      background: var(--chip);
+      border:1px solid var(--border);
+      font-weight:800;
+      color: var(--text);
+    }
+
+    .footer{
+      padding:30px 0 45px;
+      text-align:center;
+      color: var(--footer);
+      font-weight:700;
+    }
+
+    .footer-links{
+      margin-top:12px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .reveal{
+      opacity:0;
+      transform: translateY(28px);
+      transition: all .7s ease;
+    }
+
+    .reveal.show{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    .cursor{
+      display:inline-block;
+      width:3px;
+      height:1em;
+      background: var(--text);
+      margin-left:6px;
+      vertical-align:-4px;
+      animation: blink .8s infinite;
+    }
+
+    @keyframes blink{
+      0%, 49% {opacity:1}
+      50%, 100% {opacity:0}
+    }
+
+    @media (max-width: 920px){
+      .hero{min-height:auto;padding-top:40px}
+      .hero-grid, .two-col, .section-grid{grid-template-columns:1fr}
+      .mini-grid, .why-grid{grid-template-columns:1fr}
+      .nav-wrap{align-items:flex-start}
+      .nav-links{justify-content:flex-start}
+    }
+
+    @media (max-width: 560px){
+      section{padding:26px 0}
+      .container{padding:0 16px}
+      .card,.profile-card{padding:20px}
+      .btns{gap:10px}
+      .btn{width:100%;justify-content:center}
+      .profile-top{align-items:flex-start}
+      .profile-img{width:90px;height:90px}
+    }
+  </style>
 </head>
-
 <body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-glow"></div>
 
-<nav>
-  <b>Gopal</b>
-  <div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <nav>
+    <div class="container nav-wrap">
+      <div class="brand">Gopal</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#hire">Why Hire Me</a>
+        <a href="#contact">Contact</a>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="type-row">
+          <h1><span class="gradient-text" id="typing"></span><span class="cursor"></span></h1>
+        </div>
+        <p class="subtitle">IT Support Engineer | Networking | Python Developer</p>
+        <p class="lead">
+          I solve real-world IT problems and build practical solutions. Enthusiastic IT professional with a strong foundation in hardware, networking, troubleshooting, and web development.
+        </p>
+
+        <div class="btns">
+          <a class="btn btn-primary" href="mailto:mrgovaalu@gmail.com">
+            <i class="fa-solid fa-paper-plane"></i> Contact Me
+          </a>
+          <a class="btn btn-secondary" href="./GOPALAKRISHNAN_D_Resume.pdf" download>
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+        </div>
+
+        <div class="chips">
+          <span class="chip">L1 Support Engineer Profile</span>
+          <span class="chip">Python Full Stack Exposure</span>
+          <span class="chip">Hardware & Networking Skills</span>
+          <span class="chip">Troubleshooting Mindset</span>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="glass profile-card">
+          <div class="profile-top">
+            <img src="profile-placeholder.jpg" alt="Profile Photo" class="profile-img">
+            <div>
+              <div style="font-size:14px;font-weight:800;color:var(--pink)">Profile</div>
+              <h3 style="font-size:28px;margin-top:4px">Gopalakrishnan D</h3>
+              <p class="muted" style="margin:8px 0 0">
+                IT support, networking, troubleshooting, and Python-based development.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini blue">
+            <div style="font-size:14px;font-weight:700;opacity:.92">Focus</div>
+            <h3>Networking</h3>
+            <p>TCP/IP, DNS, DHCP, NAT, router and switch basics.</p>
+          </div>
+          <div class="mini orange">
+            <div style="font-size:14px;font-weight:700;opacity:.92">Build</div>
+            <h3>Python Stack</h3>
+            <p>Practical exposure to Django, SQL, MySQL, and frontend basics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container two-col">
+      <div class="glass card reveal">
+        <h2>About Me</h2>
+        <p class="muted">
+          I am an enthusiastic IT professional with knowledge in IT hardware, networking, remote support, and full stack development. I have hands-on exposure to OS installation, troubleshooting, network basics, and Python-based web application development. I am committed to learning continuously, solving technical issues efficiently, and contributing to stable IT operations.
+        </p>
+      </div>
+
+      <div class="glass card reveal">
+        <h2>Quick Summary</h2>
+        <div class="contact-list">
+          <p><i class="fa-solid fa-briefcase"></i> Entry-level IT Support & Development Roles</p>
+          <p><i class="fa-solid fa-microchip"></i> Hardware & Networking Foundation</p>
+          <p><i class="fa-solid fa-code"></i> Python, Django, SQL, MySQL</p>
+          <p><i class="fa-solid fa-circle-check"></i> Ready to Learn and Contribute</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-grid">
+        <div class="glass card reveal">
+          <h2>IT Support & Networking</h2>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>IT Hardware Troubleshooting</span><span>90%</span></div>
+            <div class="bar"><div class="fill" data-width="90%"></div></div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>OS Installation & Remote Support</span><span>88%</span></div>
+            <div class="bar"><div class="fill" data-width="88%"></div></div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>TCP/IP, DNS, DHCP, NAT</span><span>82%</span></div>
+            <div class="bar"><div class="fill" data-width="82%"></div></div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>Router, Switch, Modem Basics</span><span>80%</span></div>
+            <div class="bar"><div class="fill" data-width="80%"></div></div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>BIOS/UEFI & Boot Troubleshooting</span><span>84%</span></div>
+            <div class="bar"><div class="fill" data-width="84%"></div></div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>Static & DHCP IP Configuration</span><span>85%</span></div>
+            <div class="bar"><div class="fill" data-width="85%"></div></div>
+          </div>
+        </div>
+
+        <div class="glass card reveal">
+          <h2>Development</h2>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>Python</span><span>78%</span></div>
+            <div class="bar"><div class="fill" data-width="78%"></div></div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>Django</span><span>72%</span></div>
+            <div class="bar"><div class="fill" data-width="72%"></div></div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>SQL & MySQL</span><span>76%</span></div>
+            <div class="bar"><div class="fill" data-width="76%"></div></div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-head"><span>HTML, CSS, JavaScript</span><span>74%</span></div>
+            <div class="bar"><div class="fill" data-width="74%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="project-list">
+        <div class="glass card reveal">
+          <span class="tag">Featured Project</span>
+          <h2 style="font-size:34px">Trainer Management System</h2>
+          <p class="muted">
+            A practical web application used to manage trainer information, create batches, and assign trainers with selected batch start dates.
+          </p>
+          <ul class="clean">
+            <li>Designed around admin and trainer workflows</li>
+            <li>Supports trainer registration and management</li>
+            <li>Includes batch creation and assignment processes</li>
+            <li>Built for real-world training operations</li>
+          </ul>
+          <div class="stack">
+            <span>Python</span>
+            <span>Django</span>
+            <span>MySQL</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="glass card reveal">
+          <span class="tag">Project Showcase</span>
+          <h2 style="font-size:34px">IT Support & Troubleshooting Workflow</h2>
+          <p class="muted">
+            Hands-on support experience in remote assistance, issue diagnosis, system checks, and smooth IT operations.
+          </p>
+          <ul class="clean">
+            <li>Focused on system health and issue resolution</li>
+            <li>Includes troubleshooting mindset and support flow</li>
+            <li>Represents practical support-oriented work style</li>
+          </ul>
+          <div class="stack">
+            <span>IT Support</span>
+            <span>Networking</span>
+            <span>Diagnostics</span>
+            <span>Remote Access</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hire">
+    <div class="container two-col">
+      <div class="glass card reveal">
+        <h2>Why Hire Me?</h2>
+        <div class="why-grid">
+          <div class="why-item">Strong troubleshooting mindset</div>
+          <div class="why-item">Quick learner and adaptable</div>
+          <div class="why-item">Hands-on IT + development skills</div>
+          <div class="why-item">Ready for real-time support roles</div>
+        </div>
+      </div>
+
+      <div class="glass card reveal">
+        <h2>Training & Internship</h2>
+        <ul class="clean">
+          <li>IT Hardware and Networking – Entrust Technology</li>
+          <li>Python Full Stack Development – Palle Technologies</li>
+          <li>Python Developer Intern – Palle Technologies</li>
+          <li>Worked on Python scripts and integration tasks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container two-col">
+      <div class="glass card reveal">
+        <h2>Contact</h2>
+        <div class="contact-list">
+          <p><i class="fa-solid fa-phone"></i> +91 8489608052</p>
+          <p><i class="fa-solid fa-envelope"></i> mrgovaalu@gmail.com</p>
+          <p><i class="fa-solid fa-location-dot"></i> Karur, Tamil Nadu</p>
+          <p><i class="fa-brands fa-linkedin"></i> <a href="https://tinyurl.com/Gopal-Linkedin" target="_blank">LinkedIn Profile</a></p>
+        </div>
+
+        <div class="btns" style="margin-top:22px">
+          <a class="btn btn-primary" href="mailto:mrgovaalu@gmail.com">
+            <i class="fa-solid fa-paper-plane"></i> Hire Me
+          </a>
+          <a class="btn btn-secondary" href="./GOPALAKRISHNAN_D_Resume.pdf" download>
+            <i class="fa-solid fa-file-arrow-down"></i> Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="glass card reveal">
+        <h2>Open to Opportunities</h2>
+        <p class="muted">
+          I am actively looking for opportunities in IT support, hardware and networking, and entry-level software development roles where I can contribute, learn, and grow.
+        </p>
+        <div class="stack">
+          <span>IT Support</span>
+          <span>Networking</span>
+          <span>Python</span>
+          <span>Django</span>
+          <span>SQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div>© 2026 Gopalakrishnan D</div>
+    <div class="footer-links">
+      <a href="mailto:mrgovaalu@gmail.com">Email</a>
+      <a href="https://tinyurl.com/Gopal-Linkedin" target="_blank">LinkedIn</a>
+      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</a>
+    </div>
   </div>
-</nav>
 
-<section class="hero">
-  <h1>Gopalakrishnan D</h1>
-  <p>IT Support Engineer | Python Developer</p>
-  <p>I solve real-world IT problems and build practical solutions.</p>
-</section>
+  <script>
+    const typingText = "Gopalakrishnan D";
+    const typingEl = document.getElementById("typing");
+    let idx = 0;
 
-<section id="about" class="card">
-  <h2>About Me</h2>
-  <p>I am an IT professional skilled in networking, troubleshooting, and development.</p>
-</section>
+    function typeLoop() {
+      if (idx < typingText.length) {
+        typingEl.textContent += typingText.charAt(idx);
+        idx++;
+        setTimeout(typeLoop, 90);
+      }
+    }
+    typeLoop();
 
-<section id="skills" class="card skills">
-  <h2>Skills</h2>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
 
-  <div>Networking
-    <div class="bar"><div class="fill" style="width:90%"></div></div>
-  </div>
+          const fills = entry.target.querySelectorAll(".fill");
+          fills.forEach(fill => {
+            const width = fill.getAttribute("data-width");
+            if (width) fill.style.width = width;
+          });
+        }
+      });
+    }, { threshold: 0.14 });
 
-  <div>Python
-    <div class="bar"><div class="fill" style="width:80%"></div></div>
-  </div>
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-  <div>SQL
-    <div class="bar"><div class="fill" style="width:75%"></div></div>
-  </div>
+    const toggleBtn = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+      toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
 
-</section>
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      const isDark = document.body.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      toggleBtn.innerHTML = isDark
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+    });
 
-<section id="projects" class="card">
-  <h2>Projects</h2>
+    const canvas = document.getElementById("bg-canvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    let mouse = { x: null, y: null, radius: 120 };
 
-  <p><b>Trainer Management System</b></p>
-  <p>Web app to manage trainers and batch assignments using Django.</p>
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initParticles();
+    }
 
-</section>
+    function initParticles() {
+      particles = [];
+      const count = Math.min(80, Math.floor(window.innerWidth / 18));
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.7,
+          vy: (Math.random() - 0.5) * 0.7,
+          r: Math.random() * 2.2 + 1
+        });
+      }
+    }
 
-<section class="card">
-  <h2>Why Hire Me?</h2>
-  <ul>
-    <li>Strong troubleshooting mindset</li>
-    <li>Quick learner</li>
-    <li>Hands-on skills</li>
-  </ul>
-</section>
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-<section id="contact" class="card">
-  <h2>Contact</h2>
-  <p><i class="fa fa-phone"></i> +91 8489608052</p>
-  <p><i class="fa fa-envelope"></i> mrgovaalu@gmail.com</p>
-</section>
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
 
-<footer>
-  © 2026 Gopalakrishnan
-</footer>
+        p.x += p.vx;
+        p.y += p.vy;
 
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < mouse.radius) {
+          p.x -= dx * 0.01;
+          p.y -= dy * 0.01;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = document.body.classList.contains("dark")
+          ? "rgba(255,255,255,0.38)"
+          : "rgba(90,110,140,0.28)";
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const distLine = Math.hypot(p.x - q.x, p.y - q.y);
+          if (distLine < 110) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = document.body.classList.contains("dark")
+              ? "rgba(255,255,255,0.08)"
+              : "rgba(100,116,139,0.10)";
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(drawParticles);
+    }
+
+    window.addEventListener("mousemove", e => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    window.addEventListener("mouseout", () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    window.addEventListener("resize", resizeCanvas);
+
+    resizeCanvas();
+    drawParticles();
+  </script>
 </body>
 </html>
